@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Price Prediction</title>
+    <style>
+        body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f7f9fc;
+    text-align: center;
+    padding: 50px;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+    display: inline-block;
+}
+
+input, button {
+    color: blue;
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Stock Price 📈</h1>
+        <form method="POST">
+            <input type="text" name="ticker" placeholder="Enter Stock Symbol (e.g., AAPL)" required>
+            <button type="submit">Predict</button>
+        </form>
+        <!-- Display prediction if available -->
+{% if prediction %}
+<h2>Predicted Stock Price: ${{ prediction }}</h2>
+{% endif %}
+
+<!-- Display friendly error if it exists -->
+{% if error %}
+<p style="color: red;">{{ error }}</p>
+{% endif %}
+
+    </div>
+</body>
+</html>
